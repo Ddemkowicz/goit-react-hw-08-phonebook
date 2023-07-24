@@ -40,12 +40,6 @@ const LoginForm = () => {
           <button type="submit">Login</button>
         </form>
       </div>
-      <div>
-        <p>
-          * password must contain at least 8{' '}
-          <span>characters, including one letter and one number</span>
-        </p>
-      </div>
     </section>
   );
 };

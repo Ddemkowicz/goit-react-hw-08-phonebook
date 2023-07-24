@@ -56,19 +56,6 @@ const RegisterForm = () => {
           <button type="submit">Register</button>
         </form>
       </div>
-      <div>
-        <p>
-          * username can contain only letters and{' '}
-          <span>
-            spaces, but spaces not at the beginning and at the end, the length{' '}
-            must be from 3 to 25 characters
-          </span>
-        </p>
-        <p>
-          * password must contain at least 8{' '}
-          <span>characters, including one letter and one number</span>
-        </p>
-      </div>
     </section>
   );
 };
