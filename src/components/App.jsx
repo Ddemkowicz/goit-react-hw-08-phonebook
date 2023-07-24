@@ -1,34 +1,32 @@
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-
+// import ContactForm from './ContactForm/ContactForm';
+// import ContactList from './ContactList/ContactList';
+// import Filter from './Filter/Filter';
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import SharedLayout from './SharedLayout/SharedLayout';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectIsLoading, selectError } from 'redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectIsLoading, selectError } from 'redux/constacts/selectors';
 
 const App = () => {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+
+  const HomePage = lazy(() => import('../pages/Home'));
+  const LoginPage = lazy(() => import('../pages/Login'));
+  const RegisterPage = lazy(() => import('../pages/Register'));
+  const ContactsPage = lazy(() => import('../pages/Contacts'));
 
   return (
-    <div
-      style={{
-        backgroundColor: 'rgb(148, 148, 148)',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <ContactForm />
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ContactList />
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+      </Route>
+    </Routes>
   );
 };
 App.propTypes = {
@@ -50,3 +48,21 @@ App.propTypes = {
 };
 
 export default App;
+
+// <div
+//     style={{
+//       backgroundColor: 'rgb(148, 148, 148)',
+//       height: '100%',
+//       display: 'flex',
+//       flexDirection: 'column',
+//       justifyContent: 'center',
+//       alignItems: 'center',
+//       fontSize: 40,
+//       color: '#010101',
+//     }}
+//   >
+//     <ContactForm />
+//     <Filter />
+//     {isLoading && !error && <b>Request in progress...</b>}
+//     <ContactList />
+//   </div>
