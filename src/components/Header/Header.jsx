@@ -10,7 +10,7 @@ const Header = () => {
     <nav>
       <ul>
         <li>
-          <NavLink to="goit-react-hw-08-phonebook/">Home</NavLink>
+          <NavLink to="/goit-react-hw-08-phonebook/">Home</NavLink>
         </li>
         {isLoggedIn && (
           <li>
