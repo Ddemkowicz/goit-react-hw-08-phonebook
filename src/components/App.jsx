@@ -6,6 +6,8 @@ import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 import PropTypes from 'prop-types';
 import React from 'react';
+import LimitedRoute from 'LimitedRoute';
+import ContactsRoute from 'ContactsRoute';
 // import { useSelector } from 'react-redux';
 // import { selectIsLoading, selectError } from 'redux/constacts/selectors';
 
@@ -22,9 +24,33 @@ const App = () => {
     <Routes>
       <Route path="goit-react-hw-08-phonebook/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="contacts" element={<ContactsPage />} />
+        <Route
+          path="login"
+          element={
+            <ContactsRoute
+              redirectTo="/goit-react-hw-08-phonebook/contacts"
+              component={<LoginPage />}
+            />
+          }
+        />
+        <Route
+          path="register"
+          element={
+            <ContactsRoute
+              redirectTo="/goit-react-hw-08-phonebook/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="contacts"
+          element={
+            <LimitedRoute
+              redirectTo="/goit-react-hw-08-phonebook/login"
+              component={<ContactsPage />}
+            />
+          }
+        />
       </Route>
     </Routes>
   );
