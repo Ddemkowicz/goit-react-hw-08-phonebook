@@ -14,7 +14,7 @@ const Header = () => {
         </li>
         {isLoggedIn && (
           <li>
-            <NavLink to="/contacts">Contacts</NavLink>
+            <NavLink to="contacts">Contacts</NavLink>
           </li>
         )}
       </ul>
