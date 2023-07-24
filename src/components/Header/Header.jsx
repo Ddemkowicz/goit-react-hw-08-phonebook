@@ -10,11 +10,11 @@ const Header = () => {
     <nav>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/goit-react-hw-08-phonebook/">Home</NavLink>
         </li>
         {isLoggedIn && (
           <li>
-            <NavLink to="contacts">Contacts</NavLink>
+            <NavLink to="goit-react-hw-08-phonebook/contacts">Contacts</NavLink>
           </li>
         )}
       </ul>
